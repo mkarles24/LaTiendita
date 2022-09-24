@@ -1,0 +1,40 @@
+<div class="containerPrincipal">
+
+    <h2>Iniciar Sesión</h2>
+
+    <form [formGroup]="formLogin" (submit)="enviarDatos()">
+
+        <div>
+            <mat-form-field appearance="outline" hideRequiredMarker [class.alert-danger]="fieldIsInvalid('email')" [class.alert-sucess]="fieldIsValid('email')">
+              <mat-label>Email </mat-label>
+              <input matInput placeholder="Por ejemplo: correo@example.com" type="email" id="email" formControlName="email">
+
+              <mat-error *ngIf="fieldIsInvalid('email')">{{getMessageRequired('email')}}</mat-error>
+              <mat-error *ngIf="fieldIsInvalid('email')">{{getMessageErrorEmail('email')}}</mat-error>
+            </mat-form-field>
+        </div>
+
+
+        <div>
+            <mat-form-field appearance="outline" hideRequiredMarker [class.alert-danger]="fieldIsInvalid('password')" [class.alert-sucess]="fieldIsValid('password')">
+              <mat-label>Contraseña </mat-label>
+              <input matInput [type]="hidePassword ? 'password' : 'text'" id="password" formControlName="password">
+              
+              <button class="btnIcon" type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                <mat-icon  [matTooltip]="hidePassword ? 'Ver contraseña' : 'Ocultar contraseña'"> {{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+
+              <mat-error *ngIf="fieldIsInvalid('password')">{{getMessageRequired('password')}}</mat-error>
+              <mat-error *ngIf="fieldIsInvalid('password')">{{getMessageMinLength('password')}} {{formLogin.get('password')?.errors?.['minlength']?.requiredLength}}</mat-error>
+              <mat-error *ngIf="fieldIsInvalid('password')">{{getMessageMaxLength('password')}} {{formLogin.get('password')?.errors?.['maxlength']?.requiredLength}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="containerButtons">
+          <button matRipple class="btn btn-invalid" [class.btn-send]="formLogin.valid" [class.btn-invalid]="formLogin.invalid" [disabled]="formLogin.invalid">Enviar</button>        
+        </div>
+
+    </form>
+
+</div>
+

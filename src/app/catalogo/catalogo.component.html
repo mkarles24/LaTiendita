@@ -1,0 +1,44 @@
+
+
+<div class="containerGeneral">
+
+    <button class="btnIcon" (click)="scrollToLeft()">
+        <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+
+    <div class="containerSliderCards" #contenedorCards>
+        <div *ngFor="let producto of productos">
+            <mat-card>
+                
+                <img mat-card-image [src]="producto.urlImagenCard" alt="imagenProducto">
+    
+                <mat-card-content>
+                    <h3>{{producto.nombreProducto}}</h3>
+                    <p>{{producto.descripcion}}</p>
+                    <h4>{{ producto.precio | currency:'USD':'symbol':'1.2-2' }}</h4>
+                </mat-card-content>
+
+                <mat-card-actions>
+
+                    <button mat-button matRipple [matRippleDisabled]="productInCart(producto)" class="btn btn-addToCard" (click)="addProductToCart(producto)"> 
+                        <mat-icon>{{!productInCart(producto) ? 'shopping_cart' : 'check'}}</mat-icon>
+                        {{!productInCart(producto) ? 'agregar al carrrito' : 'seleccionado'}}
+                    </button>
+
+                    <button mat-button matRipple class="btn btn-viewDetails" routerLink="../detailProduct/{{ producto.idProducto }}"> 
+                        ver detalles
+                    </button>
+
+                </mat-card-actions>
+    
+            </mat-card>
+    
+        </div>
+    
+    </div>
+
+    <button class="btnIcon" (click)="scrollToRight()">
+        <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+
+</div>

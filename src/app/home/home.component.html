@@ -1,0 +1,21 @@
+
+<mat-sidenav-container hasBackdrop="true">
+  
+    <mat-sidenav #sidenav mode="over" position="end" fixedInViewport="true" fixedTopGap="0"> 
+        
+        <app-menu-side></app-menu-side>
+        
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      
+        <app-header (opened)="sidenav.open()"></app-header>
+
+        <app-barra-busqueda></app-barra-busqueda>
+
+        <app-carrusel></app-carrusel>
+
+        <app-catalogo></app-catalogo>
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container>

@@ -1,0 +1,17 @@
+<div id="containerFormSearch">
+
+    <form [formGroup]="formSearch">
+
+        <mat-form-field appearance="outline" hideRequiredMarker>
+            <mat-label>Buscar...</mat-label>
+            <input matInput type="text" id="search" formControlName="search">
+            
+            <button class="btnIcon" type="button" matSuffix (click)="enviarDatos()">
+              <mat-icon  matTooltip="Buscar">search</mat-icon>
+            </button>
+
+          </mat-form-field>
+
+    </form>
+
+</div>

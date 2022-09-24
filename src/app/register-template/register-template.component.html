@@ -1,0 +1,81 @@
+<div class="containerPrincipal">
+
+    <h2>Crear una cuenta</h2>
+
+    <form [formGroup]="formRegister" (submit)="enviarDatos()">
+
+        <div>
+            <mat-form-field appearance="outline" hideRequiredMarker [class.alert-danger]="fieldIsInvalid('name')" [class.alert-sucess]="fieldIsValid('name')">
+              <mat-label>Nombre </mat-label>
+              <input matInput placeholder="Por ejemplo: Karles" type="text" id="name" formControlName="name">
+
+
+              <mat-error *ngIf="fieldIsInvalid('name')">{{getMessageRequired('name')}}</mat-error>
+              <mat-error *ngIf="fieldIsInvalid('name')">{{getMessageMinLength('name')}} {{formRegister.get('name')?.errors?.['minlength']?.requiredLength}}</mat-error>
+              <mat-error *ngIf="fieldIsInvalid('name')">{{getMessageMaxLength('name')}} {{formRegister.get('name')?.errors?.['maxlength']?.requiredLength}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="outline" hideRequiredMarker [class.alert-danger]="fieldIsInvalid('apellido')" [class.alert-sucess]="fieldIsValid('apellido')">
+              <mat-label>Apellido </mat-label>
+              <input matInput placeholder="Por ejemplo: Mendoza" type="text" id="apellido" formControlName="apellido">
+
+              <mat-error *ngIf="fieldIsInvalid('apellido')">{{getMessageRequired('apellido')}}</mat-error>
+              <mat-error *ngIf="fieldIsInvalid('apellido')">{{getMessageMinLength('apellido')}} {{formRegister.get('apellido')?.errors?.['minlength']?.requiredLength}}</mat-error>
+              <mat-error *ngIf="fieldIsInvalid('apellido')">{{getMessageMaxLength('apellido')}} {{formRegister.get('apellido')?.errors?.['maxlength']?.requiredLength}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="outline" hideRequiredMarker [class.alert-danger]="fieldIsInvalid('email')" [class.alert-sucess]="fieldIsValid('email')">
+              <mat-label>Email </mat-label>
+              <input matInput placeholder="Por ejemplo: correo@example.com" type="email" id="email" formControlName="email">
+
+              <mat-error *ngIf="fieldIsInvalid('email')">{{getMessageRequired('email')}}</mat-error>
+              <mat-error *ngIf="fieldIsInvalid('email')">{{getMessageErrorEmail('email')}}</mat-error>
+            </mat-form-field>
+        </div>
+
+
+        <div>
+            <mat-form-field appearance="outline" hideRequiredMarker [class.alert-danger]="fieldIsInvalid('password')" [class.alert-sucess]="fieldIsValid('password')">
+              <mat-label>Contraseña </mat-label>
+              <input matInput [type]="hidePassword ? 'password' : 'text'" id="password" formControlName="password">
+              
+              <button class="btnIcon" type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                <mat-icon  [matTooltip]="hidePassword ? 'Ver contraseña' : 'Ocultar contraseña'"> {{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+
+              <mat-error *ngIf="fieldIsInvalid('password')">{{getMessageRequired('password')}}</mat-error>
+              <mat-error *ngIf="fieldIsInvalid('password')">{{getMessageMinLength('password')}} {{formRegister.get('password')?.errors?.['minlength']?.requiredLength}}</mat-error>
+              <mat-error *ngIf="fieldIsInvalid('password')">{{getMessageMaxLength('password')}} {{formRegister.get('password')?.errors?.['maxlength']?.requiredLength}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div formArrayName="preferencias">
+            <h5>Puedes agregar las categorias de los productos que te interesan: </h5>
+
+            <div *ngFor="let preferencia of preferencias.controls; let i=index">
+
+                  <mat-form-field appearance="outline" hideRequiredMarker>
+                    <mat-label>Categoría N° {{i+1}} </mat-label>
+                    <input matInput [formControlName]="i">
+
+                    <button class="btnIcon" mat-icon-button type="button" matSuffix (click)="removerPrefencia(i)">
+                      <mat-icon matTooltip="Eliminar">cancel</mat-icon>
+                    </button>
+                  </mat-form-field>
+
+            </div>
+
+        </div>
+
+        <div class="containerButtons">
+          <button matRipple class="btn btn-newCategory" type="button" (click)="agregarPreferencia()">Agregar una nueva categoria</button>
+          <button matRipple class="btn" [class.btn-send]="formRegister.valid" [class.btn-invalid]="formRegister.invalid" [disabled]="formRegister.invalid">Enviar</button>        
+        </div>
+
+    </form>
+
+</div>

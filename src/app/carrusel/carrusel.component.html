@@ -1,0 +1,7 @@
+<ngb-carousel>
+    <ng-template *ngFor="let slider of carruselImages" ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="slider.url" [alt]="slider.alt">
+      </div>
+    </ng-template>
+  </ngb-carousel>

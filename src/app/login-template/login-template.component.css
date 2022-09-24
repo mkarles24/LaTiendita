@@ -1,0 +1,90 @@
+/* ESTIILOS GENERALES PARA EL FORMULARIO */
+.containerPrincipal {
+    width: 95%;
+    height: auto;
+    min-height: 80vh;
+    margin: 10px auto;
+    border-bottom: solid 1px gray;
+    border-radius: 4px;
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 
+                0px 1px 1px 0px rgb(0 0 0 / 14%), 
+                0px 1px 3px 0px rgb(0 0 0 / 12%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 10px;
+}
+
+form {
+    width: 90%;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+/* ESTILOS PARA LOS ESTADOS DEL FORMULARIO */
+.alert-danger {
+    border-color: red;
+    color: red;
+}
+
+.alert-sucess {
+    border-color: green;
+    color: green;
+}
+
+/* ESTILOS PARA LOS BOTONES Y SU CONTENEDORES */
+.containerButtons {
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 5px;
+    border: 0;
+    border-radius: 0;
+    transition: all 0.5s;
+    min-height: 2.3rem;
+    min-width: 150px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.btn:hover {
+    transition: all 0.5s;
+    font-size: 15px;
+    box-shadow: 0px 6px 15px rgb(131, 118, 114);
+    text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff;
+}
+
+.btn-newCategory {
+    background: rgb(253, 192, 42);
+}
+
+.btn-send {
+    background: rgb(65, 204, 46);
+}
+
+.btn-invalid {
+    background: rgb(201, 201, 201);
+    color: black;
+}
+
+.btnIcon {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}

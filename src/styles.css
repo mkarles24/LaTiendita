@@ -1,0 +1,42 @@
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* ESTILOS GENERALES PARA EL CAROUSEL */
+.carousel-indicators button {
+    width: 10px!important;
+    height: 10px !important;
+    border-radius: 100% !important;
+    margin: 5px !important;
+    border: 1px solid rgb(131, 118, 114) !important;
+
+}
+
+/* ESTILOS PARA EL MAT INPUT */
+.mat-input-element {
+    caret-color: #8b8b8b;
+}
+
+/* ESTILOS PARA EL MAT DRAWER */
+.mat-drawer-container {
+    background-color: transparent;
+}
+
+/* ESTILOS PARA SIDENAV */
+mat-sidenav {
+    padding: 10px;
+}
+
+mat-sidenav .itemMenu {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px;
+}
+
+/* SE UTILIZA ESTA CLASE PARA CUANDO UNA RUTA ESTÉ ACTIVA */
+.linkActive {
+    color: rgb(251, 86, 40);
+    border-bottom: 3px solid rgb(251, 86, 40);
+}

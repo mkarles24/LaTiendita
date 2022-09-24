@@ -1,0 +1,24 @@
+<div id="containerHeader">
+    <div>
+        <a routerLink="/home">
+            <img class="imgLogo" src="https://i.ibb.co/FJ9BN61/textLogo.png" alt="LogoCorporativo">
+        </a>
+    </div>
+    <div class="headerMenu">
+
+        <a class="itemMenu" routerLinkActive="linkActive" routerLink="/login">Ingresar</a>
+        <a class="itemMenu" routerLinkActive="linkActive" routerLink="/register">Registrarme</a>
+        <a class="itemMenu" routerLinkActive="linkActive" routerLink="/productsList">Productos</a>
+        <a class="itemMenu" routerLinkActive="linkActive"routerLink="/about">Sobre Nosotros</a>
+        
+    </div>
+
+    <button mat-button class="btnIcon btnCart" routerLink="/cart"> 
+        <mat-icon [matBadge]="(dataCart$ | async)?.length">shopping_cart</mat-icon>
+        <span>Carrito</span>
+    </button>
+
+    <button mat-button class="btnIcon btnSideNav" (click)="abrirSide()"> 
+        <mat-icon>menu</mat-icon>
+    </button>
+</div>

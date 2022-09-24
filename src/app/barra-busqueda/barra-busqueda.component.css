@@ -1,0 +1,21 @@
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+mat-form-field {
+    width: 90%;
+}
+
+.btnIcon {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: 1px !important;
+}
